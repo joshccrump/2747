@@ -1,0 +1,10 @@
+name = "square-site-backend"
+main = "index.js"
+compatibility_date = "2026-04-16"
+
+# Non-secret variables are okay here.
+# Do NOT put SQUARE_ACCESS_TOKEN here.
+[vars]
+SQUARE_ENVIRONMENT = "sandbox"
+ALLOWED_ORIGIN = "*"
+CHECKOUT_REDIRECT_URL = "https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/success"
