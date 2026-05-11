@@ -17,6 +17,12 @@ const ROUTES = {
   cancel: '/cancel'
 };
 
+const heroImages = [
+  'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=90',
+  'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1200&q=90',
+  'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=90'
+];
+
 const fallbackProducts = [
   { id: 'seed-1', variationId: 'seed-1-var', name: 'Paint Splash Tee', price: '$29.99', amount: 2999, image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80', category: 'Graphic Tees' },
   { id: 'seed-2', variationId: 'seed-2-var', name: 'Create Your Reality Tee', price: '$29.99', amount: 2999, image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=500&q=80', category: 'New Arrivals' },
@@ -25,6 +31,7 @@ const fallbackProducts = [
   { id: 'seed-5', variationId: 'seed-5-var', name: 'Drip Logo Tee', price: '$29.99', amount: 2999, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=500&q=80', category: 'New Arrivals' },
   { id: 'seed-6', variationId: 'seed-6-var', name: '2747 Drip Hoodie', price: '$54.99', amount: 5499, image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=500&q=80', category: 'Sweatshirts' },
 ];
+
 const fallbackCategories = [
   ['NEW ARRIVALS', 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=700&q=80'],
   ['GRAPHIC TEES', 'https://images.unsplash.com/photo-1506629905607-d9e297d2d223?auto=format&fit=crop&w=700&q=80'],
@@ -33,6 +40,10 @@ const fallbackCategories = [
 ];
 
 const pageMap = new Map(Object.values(ROUTES).map((r) => [r, r]));
+
+console.assert(heroImages.length > 1, 'Hero carousel should have more than one image.');
+console.assert(fallbackProducts.length >= 6, 'Fallback catalog should include featured products.');
+console.assert(fallbackCategories.length === 4, 'Homepage should keep four category cards.');
 
 function routeFromPath(pathname) {
   const clean = pathname.startsWith(BASE_PATH) ? pathname.slice(BASE_PATH.length) || '/' : pathname || '/';
@@ -47,9 +58,18 @@ function goTo(route) {
 
 const money = (amount = 0) => `$${(amount / 100).toFixed(2)}`;
 
-function BrandLogo() { const b = siteConfig.brand; return <div className="logo"><div className="logo-left">{b.createdBy}<span>{b.creatorName}</span></div><div className="bird">🪽</div><div className="x">×</div><div className="logo-main">{b.shopNumberA}<em>{b.shopNumberB}</em><small>{b.shopLabel}</small></div></div>; }
+function BrandLogo() {
+  const b = siteConfig.brand;
+  return <div className="logo"><div className="logo-left">{b.createdBy}<span>{b.creatorName}</span></div><div className="bird">🪽</div><div className="x">×</div><div className="logo-main">{b.shopNumberA}<em>{b.shopNumberB}</em><small>{b.shopLabel}</small></div></div>;
+}
 
-function ProductGrid({ products, addToCart }) { return <section className="products">{products.map((p) => <div className="prod" key={p.variationId || p.id}><div className="badge">NEW</div><button className="prod-img" onClick={() => addToCart(p)}><img src={p.image} alt={p.name} /></button><h4>{p.name}</h4><div className="price">{p.price}</div>{typeof p.stock === 'number' && <small className="stock">{p.stock > 0 ? `${p.stock} in stock` : 'Out of stock'}</small>}<button className="add-btn" onClick={() => addToCart(p)} disabled={p.stock === 0}>ADD TO CART</button></div>)}</section>; }
+function ProductGrid({ products, addToCart }) {
+  return <section className="products">{products.map((p) => <div className="prod" key={p.variationId || p.id}><div className="badge">NEW</div><button className="prod-img" onClick={() => addToCart(p)}><img src={p.image} alt={p.name} /></button><h4>{p.name}</h4><div className="price">{p.price}</div>{typeof p.stock === 'number' && <small className="stock">{p.stock > 0 ? `${p.stock} in stock` : 'Out of stock'}</small>}<button className="add-btn" onClick={() => addToCart(p)} disabled={p.stock === 0}>ADD TO CART</button></div>)}</section>;
+}
+
+function HeroCarousel({ currentHero }) {
+  return <div className="hero-img">{heroImages.map((img, index) => <div key={img} className={`hero-slide ${index === currentHero ? 'active' : ''}`} style={{ backgroundImage: `url(${img})` }} />)}</div>;
+}
 
 function App() {
   const [catalogProducts, setCatalogProducts] = useState(null);
@@ -57,12 +77,18 @@ function App() {
   const [cart, setCart] = useState([]);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
   const [route, setRoute] = useState(routeFromPath(window.location.pathname));
+  const [currentHero, setCurrentHero] = useState(0);
   const c = siteConfig.copy;
 
   useEffect(() => {
     const onPop = () => setRoute(routeFromPath(window.location.pathname));
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => setCurrentHero((prev) => (prev + 1) % heroImages.length), 4500);
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => { (async () => {
@@ -88,15 +114,15 @@ function App() {
     </div><div className="icons"><span>⌕</span><span>♙</span><button className="cart" data-count={cartCount} onClick={() => goTo(ROUTES.cart)}>CART 🛒</button></div></nav>
 
     {route === ROUTES.home && <>
-      <section className="hero"><div className="hero-copy"><div className="eyebrow">{c.eyebrow}</div><h1>{c.headline1}<br/><span className="orange">{c.headline2}</span><br/>{c.headline3}<br/><span className="pink">{c.headline4}</span></h1><p>{c.subhead.split('\n').map((line, i) => <React.Fragment key={line}>{line}{i === 0 && <br/>}</React.Fragment>)}</p><button className="btn" onClick={() => goTo(ROUTES.newArrivals)}>SHOP NEW ARRIVALS&nbsp;&nbsp;›</button><div className="paint"></div></div><div className="hero-img"></div></section>
+      <section className="hero"><div className="hero-copy"><div className="eyebrow">{c.eyebrow}</div><h1>{c.headline1}<br/><span className="orange">{c.headline2}</span><br/>{c.headline3}<br/><span className="pink">{c.headline4}</span></h1><p>{c.subhead.split('\n').map((line, i) => <React.Fragment key={line}>{line}{i === 0 && <br/>}</React.Fragment>)}</p><button className="btn" onClick={() => goTo(ROUTES.newArrivals)}>SHOP NEW ARRIVALS&nbsp;&nbsp;›</button><div className="paint"></div></div><HeroCarousel currentHero={currentHero} /></section>
       <section className="features"><div className="feature"><div className="ico">☆</div><div><b>PREMIUM QUALITY</b><small>Made to last, built to enjoy</small></div></div><div className="feature"><div className="ico">♡</div><div><b>UNIQUE DESIGNS</b><small>Original art you won't find<br/>anywhere else</small></div></div><div className="feature"><div className="ico">▱</div><div><b>FAST SHIPPING</b><small>Quick delivery to your<br/>doorstep</small></div></div><div className="feature"><div className="ico">♢</div><div><b>SAFE & SECURE</b><small>Secure checkout, always</small></div></div></section>
-      <section className="cats">{categories.slice(0, 4).map((cat) => <div className="cat" key={cat[0]}><img src={cat[1]} /><div className="cat-content"><h3>{cat[0]}</h3><button onClick={() => goTo(ROUTES.collections)}>SHOP NOW</button></div></div>)}</section>
+      <section className="cats">{categories.slice(0, 4).map((cat) => <div className="cat" key={cat[0]}><img src={cat[1]} alt={cat[0]} /><div className="cat-content"><h3>{cat[0]}</h3><button onClick={() => goTo(ROUTES.collections)}>SHOP NOW</button></div></div>)}</section>
       <h2 className="section-title">FEATURED PRODUCTS</h2><ProductGrid products={products.slice(0, 12)} addToCart={addToCart} /><div className="center"><button className="btn outline" onClick={() => goTo(ROUTES.shop)}>VIEW ALL PRODUCTS&nbsp;&nbsp;›</button></div>
     </>}
 
     {route === ROUTES.shop && <><h2 className="section-title">SHOP ALL PRODUCTS</h2><ProductGrid products={products} addToCart={addToCart} /></>}
     {route === ROUTES.newArrivals && <><h2 className="section-title">NEW ARRIVALS</h2><ProductGrid products={(newArrivalProducts.length ? newArrivalProducts : products).slice(0, 12)} addToCart={addToCart} /></>}
-    {route === ROUTES.collections && <section className="cats">{categories.map((cat) => <div className="cat" key={cat[0]}><img src={cat[1]} /><div className="cat-content"><h3>{cat[0]}</h3><button onClick={() => goTo(ROUTES.shop)}>SHOP NOW</button></div></div>)}</section>}
+    {route === ROUTES.collections && <section className="cats">{categories.map((cat) => <div className="cat" key={cat[0]}><img src={cat[1]} alt={cat[0]} /><div className="cat-content"><h3>{cat[0]}</h3><button onClick={() => goTo(ROUTES.shop)}>SHOP NOW</button></div></div>)}</section>}
     {route === ROUTES.about && <section className="newsletter"><div><h2>ABOUT US</h2><p>{c.footerText.replace(/\n/g, ' ')}</p></div></section>}
     {route === ROUTES.contact && <section className="newsletter"><div><h2>CONTACT</h2><p>Email us at {siteConfig.brand.email}</p></div></section>}
     {route === ROUTES.cart && <div className="checkout-modal" style={{margin:'30px auto'}}>{cart.length ? <><h2>Cart</h2>{cart.map((item) => <div className="checkout-row" key={item.variationId}><span>{item.name} × {item.quantity}</span><b>{money(item.amount * item.quantity)}</b></div>)}<div className="checkout-total"><span>Total</span><b>{money(total)}</b></div><button className="btn checkout-btn" onClick={() => setCheckoutOpen(true)}>CHECKOUT</button></> : <><h2>Cart</h2><p>Your cart is empty.</p><button className="btn" onClick={() => goTo(ROUTES.shop)}>CONTINUE SHOPPING</button></>}</div>}
