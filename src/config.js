@@ -10,7 +10,8 @@ export const siteConfig = {
     shopNumberA: '27',
     shopNumberB: '47',
     shopLabel: 'TEES',
-    email: 'hello@createdbycrump.com'
+    email: 'hello@createdbycrump.com',
+    logoUrl: '/logo-2747.svg'
   },
 
   copy: {
