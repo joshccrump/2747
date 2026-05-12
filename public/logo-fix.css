@@ -1,7 +1,7 @@
 .logo {
-  width: 430px !important;
-  max-width: 430px !important;
-  height: 105px !important;
+  width: 330px !important;
+  max-width: 330px !important;
+  height: 92px !important;
   background-image: url('./Created By Crump_2747 Tees  - Artboard 8_1761333319.png') !important;
   background-repeat: no-repeat !important;
   background-position: left center !important;
@@ -14,7 +14,8 @@
 }
 
 .footer .mini-logo {
-  min-height: 72px;
+  width: 220px;
+  min-height: 56px;
   background-image: url('./Created By Crump_2747 Tees  - Artboard 8_1761333319.png');
   background-repeat: no-repeat;
   background-position: left center;
@@ -28,7 +29,12 @@
 
 @media(max-width:900px){
   .logo {
-    width: 290px !important;
-    height: 82px !important;
+    width: 250px !important;
+    height: 70px !important;
+  }
+
+  .footer .mini-logo {
+    width: 170px;
+    min-height: 42px;
   }
 }
