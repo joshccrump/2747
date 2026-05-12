@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-label="2747 Tees white t-shirt mockup">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="28" stdDeviation="30" flood-color="#000" flood-opacity=".18"/></filter>
+    <linearGradient id="fabric" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#f7f7f4"/><stop offset="1" stop-color="#ecebea"/></linearGradient>
+  </defs>
+  <rect width="900" height="1100" fill="#f5f3ef"/>
+  <path filter="url(#shadow)" fill="url(#fabric)" d="M258 162 360 110h180l102 52 145 95-83 166-87-40v548c0 42-35 76-77 76H360c-42 0-77-34-77-76V383l-87 40-83-166 145-95Z"/>
+  <path fill="#e8e8e4" opacity=".7" d="M360 110c22 42 158 42 180 0v32c-30 38-150 38-180 0v-32Z"/>
+  <path fill="none" stroke="#d7d7d3" stroke-width="7" d="M360 112c29 39 151 39 180 0"/>
+  <image href="../Created By Crump_2747 Tees  - Artboard 8_1761333319.png" x="220" y="315" width="460" height="460" preserveAspectRatio="xMidYMid meet"/>
+</svg>
