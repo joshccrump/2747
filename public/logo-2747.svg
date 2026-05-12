@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Created by CRUMP x 2747 TEES</title>
+  <desc id="desc">Colorful brand logo with hummingbird and paint splash for 2747 Tees.</desc>
+  <defs>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#23c4dd"/>
+      <stop offset="1" stop-color="#006f82"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb21a"/>
+      <stop offset="1" stop-color="#ff5a00"/>
+    </linearGradient>
+    <linearGradient id="pink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff4ca1"/>
+      <stop offset="1" stop-color="#c8006f"/>
+    </linearGradient>
+    <linearGradient id="numBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3ed6f2"/>
+      <stop offset="1" stop-color="#1f95c6"/>
+    </linearGradient>
+    <linearGradient id="numTeal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4cd2d4"/>
+      <stop offset="1" stop-color="#2a9ca5"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#soft)">
+    <path d="M990 200 C1080 210,1220 175,1300 185 C1278 220,1322 238,1372 226 C1360 248,1372 268,1410 276 C1306 286,1170 288,1030 318 C1002 282,980 250,930 238 C952 228,952 212,940 194 C958 190,972 196,990 200Z" fill="url(#pink)"/>
+    <path d="M1070 146 C1126 206,1222 194,1272 156 C1260 184,1270 206,1298 216 C1266 252,1192 258,1112 248 C1088 228,1062 208,1032 198 C1048 190,1054 172,1070 146Z" fill="url(#orange)"/>
+  </g>
+
+  <text x="20" y="300" font-size="140" font-family="Brush Script MT, Segoe Script, cursive" fill="url(#teal)">Created by</text>
+  <text x="60" y="430" font-size="120" font-weight="900" font-family="Montserrat, Arial, sans-serif" fill="#006f82">CRUMP</text>
+
+  <g transform="translate(560 220)">
+    <ellipse cx="85" cy="86" rx="46" ry="62" fill="url(#teal)"/>
+    <path d="M40 92 C-10 70,-8 42,28 40 C74 42,104 66,124 92 C88 90,62 90,40 92Z" fill="#1aa9c4"/>
+    <path d="M38 92 C8 86,-10 72,-18 56 C-24 42,-18 34,-6 36 C20 38,52 62,74 84 Z" fill="url(#orange)"/>
+    <path d="M42 92 C8 74,-18 48,-24 26 C4 26,46 58,76 88 Z" fill="url(#pink)"/>
+    <circle cx="70" cy="68" r="8" fill="#005e72"/>
+    <path d="M106 56 C132 48,168 40,178 34 C170 52,138 58,114 62 Z" fill="url(#orange)"/>
+    <path d="M74 140 C64 178,52 204,44 220 C42 194,44 166,48 136 Z" fill="#1da5c0"/>
+    <path d="M88 140 C90 184,88 210,86 228 C74 204,66 180,64 144 Z" fill="url(#pink)"/>
+  </g>
+
+  <text x="780" y="405" font-size="110" font-weight="900" font-family="Montserrat, Arial, sans-serif" fill="#14a9c1">×</text>
+  <text x="980" y="450" font-size="320" font-weight="900" font-family="Montserrat, Arial, sans-serif" fill="url(#numBlue)">2</text>
+  <text x="1180" y="450" font-size="320" font-weight="900" font-family="Montserrat, Arial, sans-serif" fill="url(#numTeal)">7</text>
+  <text x="1360" y="450" font-size="320" font-weight="900" font-family="Montserrat, Arial, sans-serif" fill="url(#orange)">47</text>
+  <text x="1260" y="510" font-size="92" letter-spacing="4" font-weight="700" font-family="Montserrat, Arial, sans-serif" fill="#b4a9a0">TEES</text>
+</svg>

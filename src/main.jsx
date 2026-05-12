@@ -60,7 +60,7 @@ const money = (amount = 0) => `$${(amount / 100).toFixed(2)}`;
 
 function BrandLogo() {
   const b = siteConfig.brand;
-  return <div className="logo"><div className="logo-left">{b.createdBy}<span>{b.creatorName}</span></div><div className="bird">🪽</div><div className="x">×</div><div className="logo-main">{b.shopNumberA}<em>{b.shopNumberB}</em><small>{b.shopLabel}</small></div></div>;
+  return <div className="logo"><img src={b.logoUrl} alt={`${b.createdBy} ${b.creatorName} x ${b.shopNumberA}${b.shopNumberB} ${b.shopLabel}`} /></div>;
 }
 
 function ProductGrid({ products, addToCart }) {
