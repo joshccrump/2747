@@ -1,11 +1,13 @@
 .logo {
-  width: 330px !important;
-  max-width: 330px !important;
+  width: 390px !important;
+  max-width: 390px !important;
   height: 92px !important;
   background-image: url('./Created By Crump_2747 Tees  - Artboard 8_1761333319.png') !important;
   background-repeat: no-repeat !important;
-  background-position: left 42% !important;
-  background-size: auto 222px !important;
+  background-position: left center !important;
+  background-size: auto 195px !important;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
   flex-shrink: 0 !important;
 }
 
@@ -14,12 +16,14 @@
 }
 
 .footer .mini-logo {
-  width: 220px !important;
+  width: 250px !important;
   min-height: 56px !important;
   background-image: url('./Created By Crump_2747 Tees  - Artboard 8_1761333319.png') !important;
   background-repeat: no-repeat !important;
-  background-position: left 42% !important;
-  background-size: auto 135px !important;
+  background-position: left center !important;
+  background-size: auto 118px !important;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
   color: transparent !important;
 }
 
@@ -29,14 +33,14 @@
 
 @media(max-width:900px){
   .logo {
-    width: 250px !important;
+    width: 290px !important;
     height: 70px !important;
-    background-size: auto 169px !important;
+    background-size: auto 145px !important;
   }
 
   .footer .mini-logo {
-    width: 170px !important;
+    width: 185px !important;
     min-height: 42px !important;
-    background-size: auto 102px !important;
+    background-size: auto 88px !important;
   }
 }
