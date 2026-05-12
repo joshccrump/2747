@@ -11,7 +11,7 @@ export const siteConfig = {
     shopNumberB: '47',
     shopLabel: 'TEES',
     email: 'hello@createdbycrump.com',
-    logoUrl: '/logo-2747.svg'
+    logoUrl: 'public/Created By Crump_2747 Tees  - Artboard 8_1761333319.png'
   },
 
   copy: {
