@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2747 Tees</title>
     <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+    <script>
+      window.__SITE_BASE_PATH__ = '/2747/';
+      window.__fixMockupAssetPath = function (value) {
+        if (typeof value !== 'string') return value;
+        return value.replaceAll('url("/mockups/', 'url("/2747/mockups/').replaceAll("url('/mockups/", "url('/2747/mockups/").replaceAll('url(/mockups/', 'url(/2747/mockups/').replace(/^\/mockups\//, '/2747/mockups/');
+      };
+      const imagePathObserver = new MutationObserver(() => {
+        document.querySelectorAll('img[src^="/mockups/"]').forEach((img) => {
+          img.src = window.__fixMockupAssetPath(img.getAttribute('src'));
+        });
+        document.querySelectorAll('[style*="/mockups/"]').forEach((el) => {
+          el.setAttribute('style', window.__fixMockupAssetPath(el.getAttribute('style')));
+        });
+      });
+      window.addEventListener('DOMContentLoaded', () => {
+        imagePathObserver.observe(document.documentElement, { subtree: true, childList: true, attributes: true, attributeFilter: ['src', 'style'] });
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>
