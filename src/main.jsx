@@ -18,25 +18,25 @@ const ROUTES = {
 };
 
 const heroImages = [
-  'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=90',
-  'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1200&q=90',
-  'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=90'
+  '/mockups/black-tee-person.webp',
+  '/mockups/white-hoodie-person.webp',
+  '/mockups/hat-person.webp'
 ];
 
 const fallbackProducts = [
-  { id: 'seed-1', variationId: 'seed-1-var', name: 'Paint Splash Tee', price: '$29.99', amount: 2999, image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80', category: 'Graphic Tees' },
-  { id: 'seed-2', variationId: 'seed-2-var', name: 'Create Your Reality Tee', price: '$29.99', amount: 2999, image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=500&q=80', category: 'New Arrivals' },
-  { id: 'seed-3', variationId: 'seed-3-var', name: 'Hummingbird Hoodie', price: '$54.99', amount: 5499, image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=500&q=80', category: 'Sweatshirts' },
-  { id: 'seed-4', variationId: 'seed-4-var', name: 'Vibrant Hummingbird Tee', price: '$29.99', amount: 2999, image: 'https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=500&q=80', category: 'Graphic Tees' },
-  { id: 'seed-5', variationId: 'seed-5-var', name: 'Drip Logo Tee', price: '$29.99', amount: 2999, image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=500&q=80', category: 'New Arrivals' },
-  { id: 'seed-6', variationId: 'seed-6-var', name: '2747 Drip Hoodie', price: '$54.99', amount: 5499, image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=500&q=80', category: 'Sweatshirts' },
+  { id: 'seed-1', variationId: 'seed-1-var', name: 'Paint Splash Tee', price: '$29.99', amount: 2999, image: '/mockups/black-tee-person.webp', category: 'Graphic Tees' },
+  { id: 'seed-2', variationId: 'seed-2-var', name: 'Create Your Reality Tee', price: '$29.99', amount: 2999, image: '/mockups/white-hoodie-person.webp', category: 'New Arrivals' },
+  { id: 'seed-3', variationId: 'seed-3-var', name: 'Hummingbird Hoodie', price: '$54.99', amount: 5499, image: '/mockups/hat-person.webp', category: 'Sweatshirts' },
+  { id: 'seed-4', variationId: 'seed-4-var', name: 'Vibrant Hummingbird Tee', price: '$29.99', amount: 2999, image: '/mockups/black-hoodie-back.webp', category: 'Graphic Tees' },
+  { id: 'seed-5', variationId: 'seed-5-var', name: 'Drip Logo Tee', price: '$29.99', amount: 2999, image: '/mockups/black-tee-seated.webp', category: 'New Arrivals' },
+  { id: 'seed-6', variationId: 'seed-6-var', name: '2747 Drip Hoodie', price: '$54.99', amount: 5499, image: '/mockups/hat-closeup.webp', category: 'Sweatshirts' },
 ];
 
 const fallbackCategories = [
-  ['NEW ARRIVALS', 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=700&q=80'],
-  ['GRAPHIC TEES', 'https://images.unsplash.com/photo-1506629905607-d9e297d2d223?auto=format&fit=crop&w=700&q=80'],
-  ['SWEATSHIRTS', 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80'],
-  ['ACCESSORIES', 'https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=700&q=80'],
+  ['NEW ARRIVALS', '/mockups/white-hoodie-person.webp'],
+  ['GRAPHIC TEES', '/mockups/black-tee-seated.webp'],
+  ['SWEATSHIRTS', '/mockups/black-hoodie-back.webp'],
+  ['ACCESSORIES', '/mockups/hat-closeup.webp'],
 ];
 
 const pageMap = new Map(Object.values(ROUTES).map((r) => [r, r]));
